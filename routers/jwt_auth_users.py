@@ -5,14 +5,11 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 import jwt
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
-from dotenv import load_dotenv
-import os
+from config import settings
 
-# Cargar las variables de entorno
-load_dotenv()
 
-# Obtener la URI de MongoDB desde el archivo .env
-secret_key = os.getenv("SECRET_KEY")
+secret_key = settings.secret_key
+
 
 # JWT
 ALGORITHM = "HS256"

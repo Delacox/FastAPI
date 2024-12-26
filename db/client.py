@@ -1,13 +1,9 @@
 from pymongo import MongoClient
-from dotenv import load_dotenv
-import os
+from config import settings
 
 
-# Cargar las variables de entorno
-load_dotenv()
 
-# Obtener la URI de MongoDB desde el archivo .env
-mongo_uri = os.getenv("MONGO_URI")
+mongo_uri = settings.mongo_uri
 
 if not mongo_uri:
     raise ValueError("La variable de entorno MONGO_URI no está configurada")
